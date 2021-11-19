@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Author;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 
-class AuthorController extends Controller
+class KategoriController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class AuthorController extends Controller
     public function index()
     {
         //
-        $author = Author::all();
-        return view ('admin.author.index', compact('author'));
+        $kategori = Kategori::all();
+        return view ('admin.kategori.index', compact('kategori'));
     }
 
     /**
@@ -27,7 +27,7 @@ class AuthorController extends Controller
     public function create()
     {
         //
-        return view('admin.author.create');
+        return view('admin.kategori.create');
     }
 
     /**
@@ -40,72 +40,76 @@ class AuthorController extends Controller
     {
         //validasi data
         $validated = $request->validate([
-            'name'=>'required',
+            'kode_kategori'=>'required',
+            'nama_kategori'=>'required',
     ]);
 
-    $author = new Author;
-    $author->name = $request->name;
-    $author->save();
-    return redirect()->route('author.index');
+    $kategori = new Kategori;
+    $kategori->kode_kategori = $request->kode_kategori;
+    $kategori->nama_kategori = $request->nama_kategori;
+    $kategori->save();
+    return redirect()->route('kategori.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Author  $author
+     * @param  \App\Models\Kategori  $kategori
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
         //
-        $author = Author::findOrFail($id);
-        return view('admin.author.show', compact('author'));
+        $kategori = Kategori::findOrFail($id);
+        return view('admin.kategori.show', compact('kategori'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Author  $author
+     * @param  \App\Models\Kategori  $kategori
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         //
-        $author = Author::findOrFail($id);
-        return view('admin.author.edit', compact('author'));
+        $kategori = Kategori::findOrFail($id);
+        return view('admin.kategori.edit', compact('kategori'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Author  $author
+     * @param  \App\Models\Kategori  $kategori
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         //
         $validated = $request->validate([
-            'name' => 'required',
+            'kode_kategori'=>'required',
+            'nama_kategori'=>'required',
         ]);
 
-        $author = Author::findOrFail($id);
-        $author->name = $request->name;
-        $author->save();
-        return redirect()->route('author.index');
+        $kategori = Kategori::findOrFail($id);
+        $kategori->kode_kategori = $request->kode_kategori;
+        $kategori->nama_kategori = $request->nama_kategori;    
+        $kategori->save();
+        return redirect()->route('kategori.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Author  $author
+     * @param  \App\Models\Kategori  $author
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         //
-        $author = Author::findOrFail($id);
-        $author->delete();
-        return redirect()->route('author.index');
+        $kategori = Kategori::findOrFail($id);
+        $kategori->delete();
+        return redirect()->route('kategori.index');
     }
 }

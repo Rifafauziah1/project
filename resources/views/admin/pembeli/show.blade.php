@@ -18,21 +18,20 @@
             <div class="card">
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="">Judul Buku</label>
-                        <input type="text" name="title" value="{{$book->title}}" class="form-control" readonly>
+                        <label for="">Nama Pembeli</label>
+                        <input type="text" name="nama" value="{{$pembeli->nama}}" class="form-control" readonly>
                     </div>
                     <div class="form-group">
-                        <label for="">Nama Penulis</label>
-                        <input type="text" name="" class="form-control" value="{{$book->author->name}}" readonly>
+                        <label for="">No Handhone</label>
+                        <input type="number" name="no_hp" class="form-control" value="{{$pembeli->no_hp}}" readonly>
                     </div>
                     <div class="form-group">
-                        <label for="">Jumlah Buku</label>
-                        <input type="number" name="amount" value="{{$book->amount}}" class="form-control" readonly>
+                        <label for="">Alamat</label>
+                        <input type="text" name="alamat" value="{{$pembeli->alamat}}" class="form-control" readonly>
                     </div>
                     <div class="form-group">
-                        <label for="">Cover Buku</label>
-                        <br>
-                        <img src="{{$book->image()}}" style="width:350px; height:350px; padding:10px;">
+                        <label for="">Tanggal Beli</label>
+                        <input type="text" name="tgl_beli" value="{{$pembeli->tgl_beli}}" class="form-control" readonly>
                     </div>
                     <div class="form-group">
                         <a href="{{url('admin/books')}}" class="btn btn-block btn-outline-primary">Kembali</a>

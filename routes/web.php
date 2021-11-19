@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\AuthorController;
-use App\Http\Controllers\BookController;
+use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\BooksController;
+use App\Http\Controllers\PembeliController;
+use App\Http\Controllers\TransaksiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,8 +35,10 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','role:admin']],function(){
     Route::get('/',function(){
         return view('admin.index');
     });
-
-    Route::resource('author', AuthorController::class);
-    Route::resource('books', BookController::class);
+    
+    Route::resource('kategori', KategoriController::class);
+    Route::resource('books', BooksController::class);
+    Route::resource('pembeli', PembeliController::class);
+    Route::resource('transaksi', TransaksiController::class);
 });
 

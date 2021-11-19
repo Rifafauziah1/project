@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-12">
-            <h1 class="m-0">Admin Dashboard</h1>
+            <h1 class="m-0">Admin Penjualan Buku</h1>
             </div>
         </div>
     </div>
@@ -16,9 +16,9 @@
     <div class = "row">
         <div class = "col">
             <div class = "card">
-                <div class = "card-header">Admin Page</div>
+                <div class = "card-header">Admin Penjualan Buku</div>
                 <div class = "card-body">
-                    Welcome back <strong>Admin</strong>
+                    Welcome <strong>Admin</strong>
                 </div>
             </div>
         </div>

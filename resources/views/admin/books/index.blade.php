@@ -25,19 +25,27 @@
                         <table class="table">
                             <tr>
                                 <th>Nomor</th>
+                                <th>Kode Kategori</th>
+                                <th>Penerbit</th>
+                                <th>Penulis</th>
                                 <th>Judul Buku</th>
-                                <th>Nama Penulis</th>
-                                <th>Jumlah Buku</th>
-                                <th>Cover Buku</th>
+                                <th>Deskripsi</th>
+                                <th>Stok</th>
+                                <th>Cover</th>
                                 <th>Aksi</th>
                             </tr>
                             @php $no=1; @endphp
                             @foreach($books as $data)
                             <tr>
                                 <td>{{$no++}}</td>
-                                <td>{{$data->title}}</td>
-                                <td>{{$data->author->name}}</td>
-                                <td>{{$data->amount}}</td>
+                                <td>{{$data->kategori->kode_kategori}}</td>
+                                <td>{{$data->penerbit}}</td>
+                                <td>{{$data->penulis}}</td>
+                                <td>{{$data->judul_buku}}</td>
+                                <td>{{$data->deskripsi}}</td>
+                                <td>{{$data->stok}}</td>
+                                <td>{{$data->cover}}</td>
+
                                 <td><img src="{{$data->image()}}" alt="" style="width:150px; height:150px;" alt="Cover"></td>
                                 <td>
                                     <form action="{{route('books.destroy',$data->id)}}" method="post">

@@ -16,47 +16,46 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Data Buku</div>
+                <div class="card-header">Data Pembeli</div>
                 <div class="card-body">
-                    <form action="{{route('books.update', $book->id)}}" method="post" enctype="multipart/form-data">
+                    <form action="{{route('pembeli.update', $pembeli->id)}}" method="post" enctype="multipart/form-data">
                         @csrf
                         @method('put')
                         <div class="form-group">
-                            <label for="">Masukan Judul Buku</label>
-                            <input type="text" name="title" value="{{$book->title}}" class="form-control @error('title') is-invalid @enderror">
-                            @error('title')
+                            <label for="">Masukan Nama Pembeli</label>
+                            <input type="text" name="nama" value="{{$pembeli->nama}}" class="form-control @error('nama') is-invalid @enderror">
+                            @error('nama')
                             <span class="invalid-feedback" role="alert">
                                     <strong>{{$message}}</strong>
                             </span>
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="">Nama Penulis Buku</label>
-                            <select name="author_id" class="form-control @error('author_id') is-invalid @enderror" >
-                                @foreach($author as $data)
-                                    <option value="{{$data->id}}" {{$data->id == $book->author_id ? 'selected="selected"' : '' }}>{{$data->name}}</option>
-                                @endforeach
-                            </select>
-                            @error('author_id')
+                            <label for="">Masukan No Handhone </label>
+                            <input type="text" name="no_hp" value="{{$pembeli->no_hp}}" class="form-control @error('no_hp') is-invalid @enderror">
+                            @error('nama')
+                            <span class="invalid-feedback" role="alert">
+                                    <strong>{{$message}}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="">Masukan Alamat</label>
+                            <input type="text" name="alamat" value="{{$pembeli->alamat}}" class="form-control @error('alamat') is-invalid @enderror">
+                             @error('alamat')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="">Masukan Jumlah Buku</label>
-                            <input type="number" name="amount" class="form-control @error('amount') is-invalid @enderror">
-                             @error('amount')
+                            <label for="">Tanggal Beli</label>
+                            <input type="date" name="tgl_beli" value="{{$pembeli->tgl_beli}}" class="form-control @error('tgl_beli') is-invalid @enderror">
+                             @error('tgl_beli')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
-                        </div>
-                        <div class="form-group">
-                            <label for="">Masukan Cover Buku</label>
-                            <br>
-                            <img src="{{$book->image()}}" height="75" style="padding:10px;"/>
-                            <input type="file" name="cover" class=form-control>
                         </div>
                         <div class="form-group">
                             <button type="reset" class="btn btn-outline-warning">Reset</button>

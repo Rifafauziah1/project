@@ -15,15 +15,17 @@ class CreateTransaksiTable extends Migration
     {
         Schema::create('transaksi', function (Blueprint $table) {
             $table->id();
-            $table->biginteger('id_buku')->unsigned();
-            $table->biginteger('id_pembeli')->unsigned();
+            $table->biginteger('kode_kategori')->unsigned();
+            $table->biginteger('judul_buku')->unsigned();
+            $table->biginteger('nama')->unsigned();
             $table->date('tgl_beli');
             $table->integer('total_buku');
-            $table->integer('harga');
+            $table->biginteger('harga');
             $table->integer('bayar');
             $table->integer('kembalian');
-            $table->foreign('id_buku')->references('id')->on('books')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('id_pembeli')->references('id')->on('pembeli')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('kode_kategori')->references('id')->on('kategori')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('judul_buku')->references('id')->on('books')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('nama')->references('id')->on('pembeli')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
